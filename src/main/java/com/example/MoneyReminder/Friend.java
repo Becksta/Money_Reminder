@@ -1,18 +1,32 @@
 package com.example.MoneyReminder;
 
-public class Friend {
-    String name;
-    String email;
-    String id;
-    int owes;
-    private Controller MoneyReminder;
+import javax.persistence.*;
 
-    public Friend (String name, String email, String id) {
+@Entity
+public class Friend {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
+
+    @Column
+    String name;
+    @Column
+    String email;
+    @Column
+    int owes;
+
+
+    public Friend (String name, String email) {
         this.name = name;
         this.email = email;
-        this.id = id;
 
     }
+
+    public Friend() {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -25,10 +39,10 @@ public class Friend {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     public int getOwes() {
