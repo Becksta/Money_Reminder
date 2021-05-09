@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface FriendRepository extends CrudRepository<Friend,Long> {
     List<Friend> findByName(String name);
-    Friend findByIdAnd(long id);
+    Friend findById(long id);
 
 }

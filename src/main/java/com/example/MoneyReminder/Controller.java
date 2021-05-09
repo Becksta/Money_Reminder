@@ -1,11 +1,12 @@
 package com.example.MoneyReminder;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.server.MimeMappings;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+@RestController
 public class Controller {
 
     public Service service;
@@ -23,8 +24,8 @@ public class Controller {
     }
 
     @GetMapping(path="/friend")
-    public Friend friend() {
-        return friend;
+    public String friend() {
+        return "Hello";
     }
     @GetMapping("/allfriends")
     public List<Friend> allFriends(){
