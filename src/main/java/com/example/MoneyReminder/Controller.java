@@ -2,10 +2,7 @@ package com.example.MoneyReminder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.server.MimeMappings;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +26,10 @@ public class Controller {
     public Friend friend() {
         return friend;
     }
+    @GetMapping("/allfriends")
+    public List<Friend> allFriends(){
+        return (List<Friend>) friendRepository.findAll();
+    }
 
     @GetMapping("/friend/{name}")
     public String pathParams(@PathVariable("name")  String name){
@@ -49,5 +50,9 @@ public class Controller {
             }
         }
         return friendWithDebt;
+    }
+   @PostMapping("/friends")
+    public Friend createFriend(@RequestBody Friend friend){
+      return friendRepository.save(friend);
     }
 }
