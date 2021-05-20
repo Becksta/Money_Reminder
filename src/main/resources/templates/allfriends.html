@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="content-type" content="text/html" />
+    <title>All friends: </title>
+</head>
+<body>
+<h1> here are all friends</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="friend : ${allFriends}">
+    <td> <span th:text="${friend.name}">Name</span></td>
+    <td> <span th:text="${friend.email}">Email</span></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
