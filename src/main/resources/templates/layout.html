@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="layout (template)" >
+<head>
+    <title>Money Reminder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta id="Viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no, shrink-to-fit=no" />
+</head>
+<body>
+<header>
+    <nav>
+        <p>
+        the navigation
+        </p>
+    </nav>
+</header>
+
+<main role="main" class="content-wrapper mt-3">
+    <div class="container">
+        <!--/*@thymesVar id="template" type="templates"*/-->
+        <section th:include="${template}"></section>
+    </div>
+</main>
+
+
+</body>
+</html>

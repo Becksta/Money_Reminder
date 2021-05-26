@@ -18,11 +18,6 @@ public class Controller {
     Friend friend = new Friend("Name","Email");
 
 
-    @GetMapping("/Money")
-    public String hello(@RequestParam(value = "name", defaultValue = "Reminder") String name) {
-        return String.format("Money %s!", name);
-
-    }
 
     @GetMapping(path="/friend")
     public String friend() {
