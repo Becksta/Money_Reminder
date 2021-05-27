@@ -41,11 +41,12 @@ public class HandlingController {
         return "home";
     }
 
-   // @RequestMapping(value = "/save", method = RequestMethod.POST)
-    //public String saveProduct(@ModelAttribute("friend") Friend friend) {
-    //    friendRepository.save(friend);
+    @GetMapping("/creationresult")
+    public String creationResult(Model model){
+        List<Friend> allFriends = (List<Friend>) friendRepository.findAll();
+        model.addAttribute("allFriends", allFriends);
+        return "creationresult";
+    }
 
-     //   return "creationresult";
-   // }
 
 }

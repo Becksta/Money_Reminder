@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout" >
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{layout :: layout (~{::body})}" >
 <head>
     <meta charset="UTF-8" http-equiv="content-type" content="text/html" />
     <title>All friends: </title>
 </head>
 <body>
-<div layout:fragment="allfriends">
+
 <h1> here are all friends</h1>
 
   <table class="table table-hover">
@@ -33,6 +32,6 @@
 
 <hr>
 <a class="btn btn-primary" href="/createfriend" role="button">create a new Friend</a>
-</div>
+
 </body>
 </html>
