@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org" th:fragment="layout (template)" xmlns:sec="http://www.w3.org/1999/xhtml" >
+<html th:fragment="layout (template)" lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Money Reminder</title>
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" th:src="@{/img/favicon.png}" >
@@ -24,44 +24,42 @@
                         <a class="nav-link" th:href="@{/createfriend}" th:classappend="${#request.requestURI == '/createfriend' ? 'active':''}">Add a new friend</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/login}" th:classappend="${#request.requestURI == '/createfriend' ? 'active':''}">LOGIN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/logout}" th:classappend="${#request.requestURI == '/createfriend' ? 'active':''}">LOGOUT</a>
+                        <a class="nav-link" th:href="@{/login}" th:classappend="${#request.requestURI == '/login' ? 'active':''}">LOGIN</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/registration.html}" th:classappend="${#request.requestURI == '/registration' ? 'active':''}">Registration</a>
+                    </li>
                 </ul>
+                <div class="d-flex">
+                    <div sec:authorize="!isAuthenticated()">
+                        <a class="btn btn-outline-primary me-2" th:href="@{/login}" th:classappend="${#request.requestURI == '/login' ? 'active':''}">Login</a>
+                        <a class="btn btn-outline-primary" th:href="@{/register}" th:classappend="${#request.requestURI == '/register' ? 'active':''}">Register</a>
+                    </div>
+                    <div sec:authorize="isAuthenticated()">
+                        <form id="logout-form" method="POST" action="#" th:action="@{/logout}">
+                            <button type="submit" class="btn btn-outline-primary">Logout</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
+    </header>
+    <main role="main" class="content-wrapper mt-3">
+        <div class="container">
+            <!--/*@thymesVar id="template" type="templates"*/-->
+            <section th:include="${template}"></section>
+        </div>
+    </main>
+    <!--    <footer class="container">-->
+    <!--        <p>The Footer</p>-->
+    <!--    </footer>-->
+            </div>
+        </div>
+    </nav>
+
 </head>
 <body>
-
-<main role="main" class="content-wrapper mt-3">
-    <div class="container">
-        <!--/*@thymesVar id="template" type="templates"*/-->
-        <section th:include="${template}"></section>
-    </div>
-</main>
-</li>
-</ul>
-<div class="d-flex">
-    <!--                        <div sec:authorize="!isAuthenticated()">-->
-    <a class="btn btn-outline-primary me-2" th:href="@{/login}" th:classappend="${#request.requestURI == '/login' ? 'active':''}">Login</a>
-    <!--                        </div>-->
-    <!--                        <div sec:authorize="isAuthenticated()">-->
-    <div sec:authorize="!isAuthenticated()">
-        <a class="btn btn-outline-primary me-2" th:href="@{/oauth2/authorization/okta}" th:classappend="${#request.requestURI == '/login' ? 'active':''}">Login</a>
-    </div>
-    <div sec:authorize="isAuthenticated()">
-        <form id="logout-form" method="POST" action="#" th:action="@{/logout}">
-            <button type="submit" class="btn btn-outline-primary">Logout</button>
-        </form>
-        <!--                        </div>-->
-    </div>
-</div>
-</div>
-</div>
-
 </body>
 </html>
