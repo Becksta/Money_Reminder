@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en"  th:replace="~{layout :: layout (~{::body})}">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{layout :: layout (~{::body})}" >
 <head>
-    <meta charset="UTF-8">
-    <title>Home Page</title>
+    <meta charset="UTF-8" http-equiv="content-type" content="text/html" />
+    <title>Willkommen beim Money Reminder!</title>
 </head>
 <body>
-Money Reminder Application
+<h2>hier kannst du einen neuen Freund hinzufügen</h2>
+<br>
+<hr>
+<br>
+<form target="_blank" action="#" th:action="@{/home}" th:object="${friend}" method="post">
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>Email: <input type="text" th:field="*{email}" /></p>
+    <p>Owes: <input type="text" th:field="*{owes}" /></p>
+
+    <p> <input type="submit" value="Submit" /></p>
+    <a href="/home"> Home </a>
+
+
+</form>
+
 </body>
 </html>

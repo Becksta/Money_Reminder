@@ -30,11 +30,11 @@ public class HandlingController {
         this.friendRepository = friendRepository;
     }
 
-    @RequestMapping(path = "/createfriend")
+    @RequestMapping(path = "/home")
     public String createFriend(@ModelAttribute("friend") com.example.MoneyReminder.Friend friend, Model model){
         friendRepository.save(friend);
         model.addAttribute("friend", friend);
-        return "createfriend";
+        return "home";
     }
 
 
@@ -45,7 +45,7 @@ public class HandlingController {
         return "allfriends";
     }
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home(Model model){
         List<Friend> allFriends = (List<Friend>) friendRepository.findAll();
         model.addAttribute("allFriends", allFriends);
@@ -56,7 +56,18 @@ public class HandlingController {
     public String creationResult(Model model){
         List<Friend> allFriends = (List<Friend>) friendRepository.findAll();
         model.addAttribute("allFriends", allFriends);
-        return "creationist";
+        return "creationlist";
+
+
+    }
+
+    @GetMapping("/loginsite")
+    public String loginResult(Model model){
+        List<Friend> allFriends = (List<Friend>) friendRepository.findAll();
+        model.addAttribute("allFriends", allFriends);
+        return "loginsite";
+
+
     }
 
     @GetMapping(value = {Endpoints.Site.LOGIN, Endpoints.Site.REMINDER})

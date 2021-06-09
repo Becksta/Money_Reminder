@@ -21,10 +21,7 @@
                         <a class="nav-link" th:href="@{/allfriends}" th:classappend="${#request.requestURI == '/allfriends' ? 'active':''}">See all Friends</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/createfriend}" th:classappend="${#request.requestURI == '/createfriend' ? 'active':''}">Add a new friend</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/login}" th:classappend="${#request.requestURI == '/login' ? 'active':''}">LOGIN</a>
+                        <a class="nav-link" th:href="@{/loginsite}" th:classappend="${#request.requestURI == '/login' ? 'active':''}">LOGIN</a>
                     </li>
 
                     <li class="nav-item">
@@ -32,13 +29,8 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <div sec:authorize="!isAuthenticated()">
-                        <a class="btn btn-outline-primary me-2" th:href="@{/login}" th:classappend="${#request.requestURI == '/login' ? 'active':''}">Login</a>
-                        <a class="btn btn-outline-primary" th:href="@{/register}" th:classappend="${#request.requestURI == '/register' ? 'active':''}">Register</a>
-                    </div>
                     <div sec:authorize="isAuthenticated()">
                         <form id="logout-form" method="POST" action="#" th:action="@{/logout}">
-                            <button type="submit" class="btn btn-outline-primary">Logout</button>
                         </form>
                     </div>
                 </div>
