@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{layout :: layout (~{::body})}" >
 <body>
 <h1>Register</h1>
-<form class="row g-3" method="post" th:action="@{/register}" th:object="${registrationRequest}">
+<form class="row g-3" method="post" th:action="@{/registration.html}" th:object="${registration}">
   <div class="col-md-4">
     <label for="firstname" class="form-label">First name</label>
     <input type="text" class="form-control" id="firstname" th:field="*{firstName}" required autofocus>
