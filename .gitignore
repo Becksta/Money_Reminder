@@ -3,7 +3,7 @@
 *.idea
 build
 .gradle
-
+node_modules/
 # Log file
 *.log
 
