@@ -30,7 +30,7 @@ public class HandlingController {
         this.friendRepository = friendRepository;
     }
 
-    @RequestMapping(path = "/home")
+    @RequestMapping(path = "/")
     public String createFriend(@ModelAttribute("friend") com.example.MoneyReminder.Friend friend, Model model){
         friendRepository.save(friend);
         model.addAttribute("friend", friend);
@@ -45,7 +45,8 @@ public class HandlingController {
         return "allfriends";
     }
 
-    @GetMapping("/")
+
+    @GetMapping("/home")
     public String home(Model model){
         List<Friend> allFriends = (List<Friend>) friendRepository.findAll();
         model.addAttribute("allFriends", allFriends);
@@ -56,7 +57,7 @@ public class HandlingController {
     public String creationResult(Model model){
         List<Friend> allFriends = (List<Friend>) friendRepository.findAll();
         model.addAttribute("allFriends", allFriends);
-        return "creationlist";
+        return "vuetest";
 
 
     }
@@ -68,6 +69,12 @@ public class HandlingController {
         return "loginsite";
 
 
+    }
+
+    @GetMapping("/vuetest")
+    public String dynamicForm(Model model) {
+        model.addAttribute("friend", new Friend());
+        return "vuetest";
     }
 
     @GetMapping(value = {Endpoints.Site.LOGIN, Endpoints.Site.REMINDER})

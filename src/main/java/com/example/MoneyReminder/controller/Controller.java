@@ -8,9 +8,7 @@ import com.example.MoneyReminder.config.ViewNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -22,6 +20,9 @@ import java.util.Map;
 public class Controller {
 
     public Service service;
+
+    //responseentity<list<entity>>
+    //return responseentity.ok(wuehfouwe)
 
     @Autowired
     private FriendRepository friendRepository;
@@ -38,6 +39,13 @@ public class Controller {
     // public List<Friend> allFriends(){
     //   return (List<Friend>) friendRepository.findAll();
     // }
+
+
+    @PostMapping("/rest/friends")
+    public Friend createFriend(@RequestBody Friend friend) {
+        return friendRepository.save(friend);
+    }
+
 
     @GetMapping("/friend/{name}")
     public String pathParams(@PathVariable("name") String name) {

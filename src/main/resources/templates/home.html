@@ -7,26 +7,22 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-    <script type="module" src="#" th:src="@{./dynamic-form.js}" defer></script>
+    <script type="module" src="#" th:src="@{/dynamic-form.js}" ></script>
 </head>
 <body>
+
 <h2>Hier kannst du einen neuen Kontakt hinzufügen</h2>
+<br>
+<br>
 <div id="dynamic-form">
-        <button-counter>here are all products</button-counter>
+    <dynamic-form>
+
+    </dynamic-form>
+
 </div>
 <br>
 <hr>
 <br>
-<form target="_blank" action="#" th:action="@{/home}" th:object="${friend}" method="post">
-    <p>Name: <input type="text" th:field="*{name}" /></p>
-    <p>Email: <input type="text" th:field="*{email}" /></p>
-    <p>Owes: <input type="text" th:field="*{owes}" /></p>
-
-    <p> <input type="submit" value="Submit" /></p>
-    <a href="/home"> Home </a>
-
-
-</form>
 
 </body>
 </html>
