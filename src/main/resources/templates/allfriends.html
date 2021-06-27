@@ -1,55 +1,75 @@
 <!DOCTYPE html>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{layout :: layout (~{::body})}" >
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{layout :: layout (~{::body})}">
 <head>
 
-  <meta charset="UTF-8" http-equiv="content-type" content="text/html" />
-  <title>All friends: </title>
+    <meta charset="UTF-8" http-equiv="content-type" content="text/html"/>
+    <title>All friends: </title>
 </head>
 <body>
 
 <style>
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
 
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
 </style>
 
 <h1> Alle deine Kontakte </h1>
 <p>Du siehst hier alle deine Freunde und kannst Ihnen einen Reminder schicken.</p>
 <table class="table table-hover">
-  <thead>
-  <tr>
+    <thead>
+    <tr>
 
-    <th scope="col">Name</th>
-    <th scope="col">Email</th>
-    <th scope="col">Schulden</th>
-    <th scope="col">Erinnerung schicken</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="friend : ${allFriends}">
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Schulden</th>
+        <th scope="col">Erinnerung schicken</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="friend : ${allFriends}">
 
-    <td> <span th:text="${friend.name}">Name</span></td>
-    <td> <span th:text="${friend.email}">Email</span></td>
-    <td> <span th:text="${friend.owes}">Email</span></td>
-    <td> <!-- Button trigger modal -->
-      <input type="button" onclick="location.href='https://googlemail.com';" value="Gehe zu Gmail" />
+        <td><span th:text="${friend.name}">Name</span></td>
+        <td><span th:text="${friend.email}">Email</span></td>
+        <td><span th:text="${friend.owes}">Email</span></td>
+        <td> <!-- Button trigger modal -->
+            <input type="button" onclick="location.href='https://googlemail.com';" value="Gehe zu Gmail"/>
 
-    </td>
-  </tr>
-  </tbody>
+            <!-- PayPal Logo -->
+            <table border="0" cellpadding="10" cellspacing="0"
+                   align="center">
+                <tbody>
+                <tr>
+                    <td align="center"></td>
+                </tr>
+                <tr>
+                    <td align="center"><a
+                            href="https://ad.doubleclick.net/ddm/trackclk/N426203.3410571DEPAYPALLOGOCENTE/B21619412.227908863;dc_trk_aid=425874235;dc_trk_cid=105298277;
+                            dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=" title="So funktioniert PayPal" onclick="javascript:window.open('https://ad.doubleclick.net/ddm/trackclk/N426203.3410571DEPAYPALLOGOCENTE/B21619412.227908863;
+                            dc_trk_aid=425874235;dc_trk_cid=105298277;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=','WIPaypal','toolbar=no, location=no, directories=no,
+                            status=no, menubar=no, scrollbars=yes, resizable=yes, width=715, height=539); return false;">
+                            <img src="https://www.paypalobjects.com/webstatic/de_DE/i/de-pp-logo-100px.png" border="0"
+                             alt="PayPal Logo"/></a></td>
+                </tr>
+                </tbody>
+            </table><!-- PayPal Logo -->
+
+        </td>
+    </tr>
+    </tbody>
 </table>
 
 
