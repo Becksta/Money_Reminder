@@ -14,7 +14,7 @@ public class Friend {
     @Column
     String email;
     @Column
-    int owes;
+    int owes =0;
 
 
     public Friend (String name, String email) {

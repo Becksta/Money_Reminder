@@ -10,6 +10,7 @@
 <body>
 
 <style>
+
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -40,7 +41,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="friend : ${allFriends}">
+    <tr th:each="friend : ${allFriends}" th:if="${friend.email != null}">
 
         <td><span th:text="${friend.name}">Name</span></td>
         <td><span th:text="${friend.email}">Email</span></td>
